@@ -11,8 +11,8 @@
         "log reader"
     ],
     "support": {
-        "docs": "https://github.com/svale/log-reader/blob/master/README.md",
-        "issues": "https://github.com/svale/log-reader/issues"
+        "docs": "https://github.com/svale/craft-log-reader/blob/main/README.md",
+        "issues": "https://github.com/svale/craft-log-reader/issues"
     },
     "license": "MIT",
     "authors": [
@@ -39,8 +39,8 @@
         "handle": "log-reader",
         "developer": "Svale Fossåskaret",
         "developerUrl": "https://github.com/svale",
-        "documentationUrl": "https://github.com/svale/log-reader/blob/master/README.md",
-        "changelogUrl": "https://raw.githubusercontent.com/svale/log-reader/master/CHANGELOG.md",
+        "documentationUrl": "https://github.com/svale/craft-log-reader/blob/main/README.md",
+        "changelogUrl": "https://raw.githubusercontent.com/svale/craft-log-reader/main/CHANGELOG.md",
         "components": {
             "fileReader": "svale\\logreader\\services\\FileReader"
         },
