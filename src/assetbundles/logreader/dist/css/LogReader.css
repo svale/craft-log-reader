@@ -1,0 +1,32 @@
+/**
+ * Log Reader plugin for Craft CMS
+ *
+ * Log Reader CSS
+ *
+ * @author    Svale Fossåskaret
+ * @copyright Copyright (c) 2021 Svale Fossåskaret
+ * @link      https://github.com/svale
+ * @package   LogReader
+ * @since     1.0.0
+ */
+
+ .logfile-form .field {
+   display: inline-flex;
+   margin: 0;
+   align-items: baseline;
+   /* outline: 1px solid red; */
+  }
+.logfile-form .field .heading {
+  margin-right: 0.2rem;
+}
+
+.log-table {
+  margin-top: 2rem;
+  table-layout: auto;
+}
+.log-table .highlight {
+  background-color: #E4EBF5;
+}
+.log-table .error {
+  color: #CF1124;
+}

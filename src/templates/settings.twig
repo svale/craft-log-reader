@@ -1,0 +1,29 @@
+{# @var craft \craft\web\twig\variables\CraftVariable #}
+{#
+/**
+ * Log Reader plugin for Craft CMS 3.x
+ *
+ * Log Reader Settings.twig
+ *
+ * @author    Svale Fossåskaret
+ * @copyright Copyright (c) 2021 Svale Fossåskaret
+ * @link      https://github.com/svale
+ * @package   LogReader
+ * @since     1.0.0
+ */
+#}
+
+{% import "_includes/forms" as forms %}
+
+{% do view.registerAssetBundle("svale\\logreader\\assetbundles\\logreader\\LogReaderAsset") %}
+
+
+{{ forms.checkboxSelectField({
+    id: 'filesToDisplay',
+    name: 'filesToDisplay',
+    label: 'Files to display'|t(),
+    showAllOption: true,
+    options: logFiles,
+    values: settings.filesToDisplay,
+    instructions: 'Choose which files to include in the viewer'|t(),
+}) }}

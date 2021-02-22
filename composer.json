@@ -1,0 +1,49 @@
+{
+    "name": "svale/log-reader",
+    "description": "Control Panel log file reader utility",
+    "type": "craft-plugin",
+    "version": "1.0.0",
+    "keywords": [
+        "craft",
+        "cms",
+        "craftcms",
+        "craft-plugin",
+        "log reader"
+    ],
+    "support": {
+        "docs": "https://github.com/svale/log-reader/blob/master/README.md",
+        "issues": "https://github.com/svale/log-reader/issues"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Svale Fossåskaret",
+            "homepage": "https://github.com/svale"
+        }
+    ],
+    "require": {
+        "craftcms/cms": "^3.0.0"
+    },
+    "require-dev": {
+        "craftcms/cms": "^3.2.0",
+        "codeception/codeception": "^3.0",
+        "vlucas/phpdotenv": "^3.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "svale\\logreader\\": "src/"
+        }
+    },
+    "extra": {
+        "name": "Log Reader",
+        "handle": "log-reader",
+        "developer": "Svale Fossåskaret",
+        "developerUrl": "https://github.com/svale",
+        "documentationUrl": "https://github.com/svale/log-reader/blob/master/README.md",
+        "changelogUrl": "https://raw.githubusercontent.com/svale/log-reader/master/CHANGELOG.md",
+        "components": {
+            "fileReader": "svale\\logreader\\services\\FileReader"
+        },
+        "class": "svale\\logreader\\LogReader"
+    }
+}
