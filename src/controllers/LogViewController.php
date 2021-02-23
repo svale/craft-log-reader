@@ -42,7 +42,12 @@ class LogViewController extends Controller
      */
     public function actionIndex($log = null, $level = 'all'): Response
     {
+        if($log === null ) {
+            $redirect = 'admin/utilities/logreader-log/?level='.$level;
+        }
+
         $redirect = 'admin/utilities/logreader-log/?log='.$log.'&level='.$level;
+
         // var_dump($redirect); die();
         return $this->redirect($redirect);
     }
