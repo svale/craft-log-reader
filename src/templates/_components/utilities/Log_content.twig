@@ -31,6 +31,8 @@
           value: currentLogFile,
           options: logFiles,
       }) }}
+    {% else %}
+      <input type="hidden" name="log" value="{{ logFiles[0].value }}" />
   {% endif %} 
 
   {% if levels|length > 1 %}
@@ -42,6 +44,8 @@
           value: level,
           options: levels,
       }) }}
+    {% else %}
+      <input type="hidden" name="log" value="{{ levels[0].value }}" />
   {% endif %}
 </form>
 
