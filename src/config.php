@@ -24,5 +24,11 @@
 
 return [
     // This controls which log files should be accessiblein the viewer
-    "filesToDisplay" => []
+    "filesToDisplay" => [],
+
+    // This controls which levels to exclude from reader
+    "levelsToExclude" => [],
+
+    // This controls the default log file to display
+    "defaultLogfile" => ''
 ];
