@@ -21,50 +21,54 @@
 <h1>{{ 'Log File Reader'|t() }}</h1>
 {# <img src="{{ iconUrl }}" height="64" width="64" /> #}
 
-<form action="/actions/log-reader/log-view" id="js-logfile-form" class="logfile-form">
-  {% if logFiles|length > 1 %}
-      {{ forms.selectField({
-          label: 'Select log file:'|t(),
-          instructions: ''|t(),
-          id: 'js-logfile-selector',
-          name: 'log',
-          value: currentLogFile,
-          options: logFiles,
-      }) }}
-    {% else %}
-      <input type="hidden" name="log" value="{{ logFiles[0].value }}" />
-  {% endif %} 
+{% if error %}
+  <p class="error">{{ error }}</p>
+{% else %}
+  <form action="/actions/log-reader/log-view" id="js-logfile-form" class="logfile-form">
+    {% if logFiles|length > 1 %}
+        {{ forms.selectField({
+            label: 'Select log file:'|t(),
+            instructions: ''|t(),
+            id: 'js-logfile-selector',
+            name: 'log',
+            value: currentLogFile,
+            options: logFiles,
+        }) }}
+      {% else %}
+        <input type="hidden" name="log" value="{{ logFiles[0].value }}" />
+    {% endif %} 
 
-  {% if levels|length > 1 %}
-      {{ forms.selectField({
-          label: 'Filter list by level: '|t(),
-          instructions: ''|t(),
-          id: 'js-level-selector',
-          name: 'level',
-          value: level,
-          options: levels,
-      }) }}
-    {% else %}
-      <input type="hidden" name="log" value="{{ levels[0].value }}" />
+    {% if levels|length > 1 %}
+        {{ forms.selectField({
+            label: 'Filter list by level: '|t(),
+            instructions: ''|t(),
+            id: 'js-level-selector',
+            name: 'level',
+            value: level,
+            options: levels,
+        }) }}
+      {% else %}
+        <input type="hidden" name="log" value="{{ levels[0].value }}" />
+    {% endif %}
+  </form>
+
+  {% if logEntries|length %}
+    <table class="log-table data">
+      <thead>
+        <tr>
+          <th style="width:110px">{{ 'Date'|t() }}</th>
+          <th>{{ 'Time'|t() }}</th>
+          <th class="highlight">{{ 'Level'|t() }}</th>
+          <th>{{ 'Description'|t() }}</th>
+        </tr>
+      </thead>
+      {% for row in logEntries %}
+        <tr>
+          {% for column in row %}
+            <td class="{{ loop.index == 3 ? 'highlight' }} {{ column == 'error' ? 'error' }}" >{{ column }}</td>
+          {% endfor %}
+        </tr>
+      {% endfor %}
+    </table
   {% endif %}
-</form>
-
-{% if logEntries|length %}
-  <table class="log-table data">
-    <thead>
-      <tr>
-        <th style="width:110px">{{ 'Date'|t() }}</th>
-        <th>{{ 'Time'|t() }}</th>
-        <th class="highlight">{{ 'Level'|t() }}</th>
-        <th>{{ 'Description'|t() }}</th>
-      </tr>
-    </thead>
-    {% for row in logEntries %}
-      <tr>
-        {% for column in row %}
-          <td class="{{ loop.index == 3 ? 'highlight' }} {{ column == 'error' ? 'error' }}" >{{ column }}</td>
-        {% endfor %}
-      </tr>
-    {% endfor %}
-  </table
 {% endif %}

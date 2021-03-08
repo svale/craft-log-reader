@@ -116,6 +116,7 @@ JS;
      */
     public static function contentHtml(): string
     {
+        $error =  null;
 
         $defaultLogfile = LogReader::$plugin->getSettings()->defaultLogfile;
         $current = Craft::$app->request->getParam('log', $defaultLogfile);
@@ -123,6 +124,10 @@ JS;
 
         $logFiles = LogReader::$plugin->fileReader->getFiles();
         $logEntries = LogReader::$plugin->fileReader->parse($current, $level);
+
+        if(empty($logFiles)) {
+            $error = 'No log files available to read. Please check your settings';
+        }
 
         LogReader::$plugin->view->registerAssetBundle(LogReaderAsset::class);
 
@@ -140,6 +145,7 @@ JS;
                 'currentLogFile' => $current,
                 'level' => $level,
                 'logEntries' => $logEntries,
+                'error' => $error
             ]
         );
     }
