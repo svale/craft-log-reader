@@ -35,7 +35,7 @@ class Settings extends Model
     // =========================================================================
 
     /**
-     * @ TODO: Add setting for levels to make accessible
+     * @TODO: Add setting for levels to make accessible
      *
      * @var string
      */
@@ -48,6 +48,12 @@ class Settings extends Model
      */
     public $filesToDisplay = '*';
 
+    /**
+     * default log file to display
+     *
+     * @var string
+     */
+    public $defaultLogfile = 'web.log';
 
     // Public Methods
     // =========================================================================

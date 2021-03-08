@@ -116,8 +116,9 @@ JS;
      */
     public static function contentHtml(): string
     {
-        // @todo: default log file should be a setting
-        $current = Craft::$app->request->getParam('log', 'web.log');
+
+        $defaultLogfile = LogReader::$plugin->getSettings()->defaultLogfile;
+        $current = Craft::$app->request->getParam('log', $defaultLogfile);
         $level = Craft::$app->request->getParam('level', 'all');
 
         $logFiles = LogReader::$plugin->fileReader->getFiles();
