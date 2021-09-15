@@ -40,7 +40,7 @@ The list can be filter by level of incident (info, warning, error).
 Please note that the plugin does not display a full comprehensiv view of the log files. For this use th Yii Debug Tool Bar is much better. But it can provid a quick look and can be particualary useful for custom logfiles.
 
 
-### Credits
+## Credits
 Inspired by [Logs](https://github.com/ethercreative/logs).
 
 ## Log Reader Roadmap
